@@ -15,7 +15,7 @@ extension OptimusPrimeExtensions on int{
       int maxIterations = (this/2).floor();
       bool canBeDivided = false;
       int i = 2;
-      while(canBeDivided == false && i < maxIterations){
+      while(canBeDivided == false && i <= maxIterations){
         if(this % i == 0){
           canBeDivided = true;
         }
