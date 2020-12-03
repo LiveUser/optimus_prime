@@ -1,7 +1,6 @@
 library optimus_prime;
 
 import 'dart:core';
-import 'dart:math';
 
 extension OptimusPrimeExtensions on int{
   //Determine if the number is prime
@@ -32,6 +31,40 @@ extension OptimusPrimeExtensions on int{
     }
   }
   //TODO: Add the coprimeWith function
+  bool coprimeWith(int number){
+    List<int> myFactors = [];
+    List<int> numberFactors = [];
+    int myMaxIterations = (this/2).floor();
+    int numberMaxIterations = (number/2).floor();
+    //Find factors for this number(myNumber)
+    for(int i = 2; i <= myMaxIterations; i++){
+      if(this % i == 0){
+        myFactors.add(i);
+      }
+    }
+    //Add itself as factor
+    myFactors.add(this);
+    //Find factors for the parameter number(Number)
+    for(int f = 2; f <= numberMaxIterations; f++){
+      if(number % f == 0){
+        numberFactors.add(f);
+      }
+    }
+    //Add itself as factor
+    numberFactors.add(number);
+    //Find common factors
+    bool factorsInCommon = false;
+    int iterator = 0;
+    while(iterator < myFactors.length && factorsInCommon == false){
+      if(numberFactors.indexOf(myFactors[iterator]) != -1){
+        //Found a common factor it is not coprime
+        factorsInCommon = true;
+      }
+      iterator++;
+    }
+    //Number is prime if it does not have common factors
+    return !factorsInCommon;
+  }
 }
 //Library functionality
 class OptimusPrime{

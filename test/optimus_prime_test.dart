@@ -24,9 +24,15 @@ void main() {
     print(primeList);
   });
   test('Next prime test',(){
+    //TODO: Why is 4 counted as prime
     print('Next prime from 28 = ${OptimusPrime.primeAfter(28)}');
   });
   test('Prime before test',(){
     print('Next prime from 3 = ${OptimusPrime.primeBefore(3)}');
+  });
+  test('Test the coprime function', (){
+    print('22 and 21 are coprime: ${22.coprimeWith(21)}');
+    print('21 and 24 are coprime: ${21.coprimeWith(24)}');
+    print('21 and 21 are coprime: ${21.coprimeWith(21)}');
   });
 }
