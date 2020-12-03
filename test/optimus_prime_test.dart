@@ -26,4 +26,7 @@ void main() {
   test('Next prime test',(){
     print('Next prime from 28 = ${OptimusPrime.primeAfter(28)}');
   });
+  test('Prime before test',(){
+    print('Next prime from 3 = ${OptimusPrime.primeBefore(3)}');
+  });
 }

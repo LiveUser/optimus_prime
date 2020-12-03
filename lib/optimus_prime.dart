@@ -31,6 +31,7 @@ extension OptimusPrimeExtensions on int{
       }
     }
   }
+  //TODO: Add the coprimeWith function
 }
 //Library functionality
 class OptimusPrime{
@@ -53,4 +54,15 @@ class OptimusPrime{
     return number;
   }
   //Find the first prime there is before the number
+  static primeBefore(int number){
+    if((number - 1) <= 2){
+      number = 2;
+    }else{
+      number--;
+    }
+    while(number.isPrime() == false && number > 2){
+      number--;
+    }
+    return number;
+  }
 }
