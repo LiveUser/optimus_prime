@@ -3,7 +3,7 @@ library optimus_prime;
 import 'dart:core';
 
 extension OptimusPrimeExtensions on int{
-  //Determine if the number is prime
+  ///Determine if the number is prime
   bool isPrime(){
     if(this == 2 || this == 3){
       //2 and 3 are prime
@@ -30,7 +30,7 @@ extension OptimusPrimeExtensions on int{
       }
     }
   }
-  //TODO: Add the coprimeWith function
+  ///Check if this number is coprime with the argument number
   bool coprimeWith(int number){
     List<int> myFactors = [];
     List<int> numberFactors = [];
@@ -68,8 +68,8 @@ extension OptimusPrimeExtensions on int{
 }
 //Library functionality
 class OptimusPrime{
-  static //Find primes between a range and return the list of primes
-  List<int> primesInRange({int from,int to}){
+  ///Get a List of prime numbers within the specified range
+  static List<int> primesInRange({int from,int to}){
     List<int> primeNumbers = [];
     for(int iterator = from; iterator <= to; iterator++){
       if(iterator.isPrime()){
@@ -78,7 +78,7 @@ class OptimusPrime{
     }
     return primeNumbers;
   }
-  //Find the first prime there is after the number
+  ///Find the first prime there is after the number
   static primeAfter(int number){
     number++;
     while(number.isPrime() == false){
@@ -86,7 +86,7 @@ class OptimusPrime{
     }
     return number;
   }
-  //Find the first prime there is before the number
+  ///Find the first prime there is before the number
   static primeBefore(int number){
     if((number - 1) <= 2){
       number = 2;

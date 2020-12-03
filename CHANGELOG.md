@@ -1,3 +1,3 @@
-## [0.0.1] - TODO: Add release date.
+## Version 0.0.1 - December 3 2020
 
-* TODO: Describe initial release.
+* Added and tested all of the core functionality of the Optimus Prime library
