@@ -24,7 +24,6 @@ void main() {
     print(primeList);
   });
   test('Next prime test',(){
-    //TODO: Why is 4 counted as prime
     print('Next prime from 28 = ${OptimusPrime.primeAfter(28)}');
   });
   test('Prime before test',(){
