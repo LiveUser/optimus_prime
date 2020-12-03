@@ -1,27 +1,56 @@
 library optimus_prime;
 
 import 'dart:core';
+import 'dart:math';
 
-extension OptimusPrimeFunctions on int{
+extension OptimusPrimeExtensions on int{
   //Determine if the number is prime
   bool isPrime(){
-    //Use my modulo approach
     if(this == 2 || this == 3){
       //2 and 3 are prime
       return true;
     }else if(this < 2){
-      //Primes are positive and greater than or equal to 2
+      //Primes are positive integers greater than or equal to 2
       return false;
-    }else if(this % 2 == 1 && this % 3 == 1 || this % 3 == 2){
-      //My Modulo approach
-      return true;
-    }else if(this % 2 == 0 && this % 3 == 2){
-      //My Modulo approach
-      return true;
     }else{
-      //If previous conditions arent met it is a prime
-      return false;
+      int maxIterations = (this/2).floor();
+      bool canBeDivided = false;
+      int i = 2;
+      while(canBeDivided == false && i < maxIterations){
+        if(this % i == 0){
+          canBeDivided = true;
+        }
+        i++;
+      }
+      if(canBeDivided){
+        //Prime numbers shouldn't be divisible
+        return false;
+      }else{
+        //If cannot be divided it is prime
+        return true;
+      }
     }
   }
-
+}
+//Library functionality
+class OptimusPrime{
+  static //Find primes between a range and return the list of primes
+  List<int> primesInRange({int from,int to}){
+    List<int> primeNumbers = [];
+    for(int iterator = from; iterator <= to; iterator++){
+      if(iterator.isPrime()){
+        primeNumbers.add(iterator);
+      }
+    }
+    return primeNumbers;
+  }
+  //Find the first prime there is after the number
+  static primeAfter(int number){
+    number++;
+    while(number.isPrime() == false){
+      number++;
+    }
+    return number;
+  }
+  //Find the first prime there is before the number
 }
