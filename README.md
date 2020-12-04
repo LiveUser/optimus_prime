@@ -2,6 +2,11 @@
 
 A library to aid working with prime numbers.
 
+## Import the Library
+~~~dart
+import 'package:optimus_prime/optimus_prime.dart';
+~~~
+
 ## Library Examples:
 
 ### Extension Methods
@@ -36,3 +41,4 @@ Get a list of prime integers within the specified range
 ~~~dart
 List<int> primeList = OptimusPrime.primesInRange(from: 1,to: 1000);
 ~~~
+Hecho en  🇵🇷 por Radamés J. Valentín Reyes
