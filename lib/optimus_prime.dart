@@ -1,6 +1,6 @@
 library optimus_prime;
 
-import 'dart:core';
+import 'package:meta/meta.dart';
 
 extension OptimusPrimeExtensions on int{
   ///Determine if the number is prime
@@ -69,7 +69,7 @@ extension OptimusPrimeExtensions on int{
 //Library functionality
 class OptimusPrime{
   ///Get a List of prime numbers within the specified range
-  static List<int> primesInRange({int from,int to}){
+  static List<int> primesInRange({@required int from,@required int to}){
     List<int> primeNumbers = [];
     for(int iterator = from; iterator <= to; iterator++){
       if(iterator.isPrime()){
