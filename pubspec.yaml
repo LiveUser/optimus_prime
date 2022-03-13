@@ -1,17 +1,13 @@
 name: optimus_prime
 description: A library to aid working with prime numbers.
-version: 0.0.1+2
-author: Radamés J. Valentín Reyes
+version: 0.0.2+2
 homepage:
 
 environment:
-  sdk: ">=2.7.0 <3.0.0"
-  flutter: ">=1.17.0 <2.0.0"
+  sdk: ">=2.12.0 <3.0.0"
+  flutter: ">=1.17.0"
 
 dependencies:
-  flutter:
-    sdk: flutter
-  meta:
 
 dev_dependencies:
   flutter_test:

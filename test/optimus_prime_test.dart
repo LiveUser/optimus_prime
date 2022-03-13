@@ -1,11 +1,10 @@
 import 'package:flutter_test/flutter_test.dart';
-
 import 'package:optimus_prime/optimus_prime.dart';
 
 void main() {
   test('Test the isPrime method', () {
     print('2 is prime ${2.isPrime()}');
-    print('569 is prime ${569.isPrime()}');
+    print('6 is prime ${6.isPrime()}');
     print('568 is prime ${568.isPrime()}');
   });
   //Known prime numbers to test with
@@ -33,5 +32,14 @@ void main() {
     print('22 and 21 are coprime: ${22.coprimeWith(21)}');
     print('21 and 24 are coprime: ${21.coprimeWith(24)}');
     print('21 and 21 are coprime: ${21.coprimeWith(21)}');
+  });
+  test("Factors of", (){
+    int testInt = 21;
+    int testInt2 = 22;
+    List<int> factors = testInt.factors();
+    print("Factors of  $testInt");
+    print(factors);
+    print("Factors of $testInt2");
+    print(testInt2.factors());
   });
 }

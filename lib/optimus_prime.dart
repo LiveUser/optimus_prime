@@ -1,7 +1,5 @@
 library optimus_prime;
 
-import 'package:meta/meta.dart';
-
 extension OptimusPrimeExtensions on int{
   ///Determine if the number is prime
   bool isPrime(){
@@ -11,8 +9,11 @@ extension OptimusPrimeExtensions on int{
     }else if(this < 2){
       //Primes are positive integers greater than or equal to 2
       return false;
+    }else if(this == 4){
+      //Have this condition for 4 because using int maxIterations = (this / 4).ceil(); makes 4 look like its prime and int maxIterations = (this / 2).ceil(); makes creates more iteration than necessary on number greater than 4
+      return false;
     }else{
-      int maxIterations = (this/2).floor();
+      int maxIterations = (this / 4).ceil();
       bool canBeDivided = false;
       int i = 2;
       while(canBeDivided == false && i <= maxIterations){
@@ -32,29 +33,11 @@ extension OptimusPrimeExtensions on int{
   }
   ///Check if this number is coprime with the argument number
   bool coprimeWith(int number){
-    List<int> myFactors = [];
-    List<int> numberFactors = [];
-    int myMaxIterations = (this/2).floor();
-    int numberMaxIterations = (number/2).floor();
-    //Find factors for this number(myNumber)
-    for(int i = 2; i <= myMaxIterations; i++){
-      if(this % i == 0){
-        myFactors.add(i);
-      }
-    }
-    //Add itself as factor
-    myFactors.add(this);
-    //Find factors for the parameter number(Number)
-    for(int f = 2; f <= numberMaxIterations; f++){
-      if(number % f == 0){
-        numberFactors.add(f);
-      }
-    }
-    //Add itself as factor
-    numberFactors.add(number);
+    List<int> myFactors = this.factors();
+    List<int> numberFactors = number.factors();
     //Find common factors
     bool factorsInCommon = false;
-    int iterator = 0;
+    int iterator = 1;
     while(iterator < myFactors.length && factorsInCommon == false){
       if(numberFactors.indexOf(myFactors[iterator]) != -1){
         //Found a common factor it is not coprime
@@ -65,11 +48,25 @@ extension OptimusPrimeExtensions on int{
     //Number is prime if it does not have common factors
     return !factorsInCommon;
   }
+  //Make the function find factors and call it from other parts of the code where necessary
+  List<int> factors(){
+    int maxIterations = this ~/ 2;
+    //All numbers have 1 as a factor
+    List<int> foundFactors = [1];
+    for(int i = 2; i <= maxIterations; i++){
+      if(this % i == 0){
+        foundFactors.add(i);
+      }
+    }
+    //Add itself as a factor
+    foundFactors.add(this);
+    return foundFactors;
+  }
 }
 //Library functionality
 class OptimusPrime{
   ///Get a List of prime numbers within the specified range
-  static List<int> primesInRange({@required int from,@required int to}){
+  static List<int> primesInRange({required int from,required int to}){
     List<int> primeNumbers = [];
     for(int iterator = from; iterator <= to; iterator++){
       if(iterator.isPrime()){
